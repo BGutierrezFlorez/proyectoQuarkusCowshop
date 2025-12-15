@@ -3,7 +3,7 @@ package com.cowshop.project.resources;
 import com.cowshop.data.UsuarioData;
 import com.cowshop.helpers.JwtHelper;
 import com.cowshop.project.entities.Usuario;
-import com.cowshop.models.UsuarioLoginRequest;
+import com.cowshop.project.entities.UsuarioLoginRequest;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.*;
@@ -39,7 +39,7 @@ public class UsuarioResource {
     @Operation(summary = "Listar usuarios")
     @APIResponse(responseCode = "200", description = "Lista de usuarios")
     public Response listar() {
-        List<Usuario> usuarios = UsuarioData.listarUsuarios();
+        List<Usuario> usuarios = UsuarioResource.listarUsuarios();
         return Response.ok(usuarios != null ? usuarios : List.of()).build();
     }
 
@@ -69,7 +69,7 @@ public class UsuarioResource {
                     .build();
         }
 
-        boolean success = UsuarioData.registrarUsuario(usuario);
+        boolean success = UsuarioResource.registrarUsuario(usuario);
         if (!success) {
             return Response.status(Response.Status.BAD_REQUEST)
                     .entity("No se pudo registrar el usuario")

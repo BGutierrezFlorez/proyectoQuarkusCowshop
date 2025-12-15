@@ -2,6 +2,7 @@ package com.cowshop.project.resources;
 
 import com.cowshop.data.UsuarioData;
 import com.cowshop.helpers.JwtHelper;
+import com.cowshop.project.Repository.UsuarioRepository;
 import com.cowshop.project.entities.Usuario;
 import com.cowshop.project.resources;
 
@@ -38,24 +39,24 @@ public class LoginResource {
                     .build();
         }
 
-        var ver = UsuarioData.verificarLogin(
+        var ver = UsuarioRepository.verificarLogin(
                 request.getCorreo(),
                 request.getContrasena()
         );
 
-        if (ver == UsuarioData.VerificacionLoginResultado.NoExisteCorreo) {
+        if (ver == UsuarioRepository.VerificacionLoginResultado.NoExisteCorreo) {
             return Response.status(Response.Status.UNAUTHORIZED)
                     .entity("Correo no registrado")
                     .build();
         }
 
-        if (ver == UsuarioData.VerificacionLoginResultado.ContrasenaIncorrecta) {
+        if (ver == UsuarioRepository.VerificacionLoginResultado.ContrasenaIncorrecta) {
             return Response.status(Response.Status.UNAUTHORIZED)
                     .entity("Contraseña incorrecta")
                     .build();
         }
 
-        Usuario usuario = UsuarioData.login(
+        Usuario usuario = UsuarioRepository.login(
                 request.getCorreo(),
                 request.getContrasena()
         );

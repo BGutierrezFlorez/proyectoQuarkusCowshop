@@ -12,6 +12,25 @@ public class UsuarioLoginRequest {
     )
     private String correo;
 
-    @Schema()
+    @Schema(
+            description = "Contraseña del usuario",
+            examples = "123456789",
+            required = true
+    )
+    private String password;
+
+    // Getter and Setter
+    public String getCorreo() {
+        return correo;
+    }
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public void setPassword(String password) {
+        this.password = password;
+    }
 
 }
