@@ -1,6 +1,6 @@
 package com.cowshop.project.resources;
 
-import com.cowshop.data.UsuarioData;
+import com.cowshop.project.Repository.UsuarioRepository;
 import com.cowshop.helpers.JwtHelper;
 import com.cowshop.project.entities.Usuario;
 import com.cowshop.project.entities.UsuarioLoginRequest;
@@ -96,7 +96,7 @@ public class UsuarioResource {
 
         usuario.setID_Usuario(id);
 
-        boolean success = UsuarioData.actualizarUsuario(id, usuario);
+        boolean success = UsuarioRepository.actualizarUsuario(id, usuario);
         if (!success) {
             return Response.status(Response.Status.NOT_FOUND).build();
         }

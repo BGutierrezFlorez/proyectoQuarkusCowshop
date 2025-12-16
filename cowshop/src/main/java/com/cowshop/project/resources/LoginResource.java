@@ -4,6 +4,7 @@ import com.cowshop.data.UsuarioData;
 import com.cowshop.helpers.JwtHelper;
 import com.cowshop.project.Repository.UsuarioRepository;
 import com.cowshop.project.entities.Usuario;
+import com.cowshop.project.entities.UsuarioLoginRequest;
 import com.cowshop.project.resources;
 
 import jakarta.ws.rs.*;

@@ -1,4 +1,4 @@
-package com.cowshop.project.resources;
+package com.cowshop.project.entities;
 import org.eclipse.microprofile.openapi.annotations.media.Schema;
 @Schema(name = UsuarioLoginRequest, description = "Datos necesarios para el login")
 public class UsuarioLoginRequest {
